@@ -1,0 +1,27 @@
+<?php 
+session_start();
+if(!isset($_SESSION['user']))
+{
+	header("Location: index.php");
+}
+
+if(isset($_GET['logout']))
+{
+	session_destroy();
+  unset($_SESSION['user']);
+}
+
+include('includes/header.php'); ?>
+    <div class="container text-center">
+        <br><br>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2"></div>
+            <div class="col-md-auto">
+              <h4 class="text-success">התנתקת בהצלחה</h4>
+              לחזרה לדף הבית לחץ <a href="index.php">כאן</a>
+            </div>
+            <div class="col col-lg-2"></div>
+        </div>
+    </div>
+
+<?php include('includes/footer.php'); ?>
