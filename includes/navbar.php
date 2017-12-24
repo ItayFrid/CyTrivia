@@ -4,7 +4,11 @@
     if(isset($_SESSION['user']))
     {
         $res=mysqli_query($con, "SELECT * FROM users WHERE id=".$_SESSION['user']);
+        $resAdmin=mysqli_query($con, "SELECT * FROM admins_editors WHERE id=".$_SESSION['user']);
         $userRow=mysqli_fetch_assoc($res);
+        $adminRow=mysqli_fetch_assoc($resAdmin);
+        mysqli_free_result($res);
+        mysqli_free_result($resAdmin);
     }
 
     ?>
@@ -25,7 +29,7 @@
                 </li>
 
                 </li>
-                <?php if(isset($_SESSION['user'])): ?>
+                <?php if(isset($_SESSION['user']) && !isset($adminRow['admin_or_editor'])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#">התחל לשחק!</a>
                 </li>
@@ -42,6 +46,20 @@
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">הרשמה</button>
             </a>
             <?php else:?>
+                <?php if(isset($adminRow['admin_or_editor'])):?> 
+                <!-- User is Admin Or Editor -->
+                    <?php if($adminRow['admin_or_editor']==1):?>
+                    <!-- User Is Admin -->
+                    <a href="<?php echo ROOT_URL;?>#">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">דף מנהל</button>
+            </a>
+                    <?php else:?>
+                    <!-- User Is Editor -->
+            <a href="<?php echo ROOT_URL;?>qinterface.php">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">עריכת שאלות</button>
+            </a>
+                    <?php endif;?>
+                <?php endif;?>
             <a href="<?php echo ROOT_URL;?>logout.php?logout">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">התנתקות</button>
             </a>
