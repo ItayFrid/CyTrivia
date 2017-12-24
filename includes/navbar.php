@@ -50,7 +50,7 @@
                 <!-- User is Admin Or Editor -->
                     <?php if($adminRow['admin_or_editor']==1):?>
                     <!-- User Is Admin -->
-                    <a href="<?php echo ROOT_URL;?>#">
+                    <a href="<?php echo ROOT_URL;?>adminInterface.php">
                 <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">דף מנהל</button>
             </a>
                     <?php else:?>
