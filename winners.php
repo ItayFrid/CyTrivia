@@ -1,9 +1,18 @@
-<?php include('includes/header.php');?>
+<?php 
+include('includes/header.php');
+$query = 'SELECT * FROM users ORDER BY score DESC';
+$result = mysqli_query($con, $query);
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+$today = date('Y-m-d');
+?>
 
     <!-- Body -->
-
-    <h1 class="display-3 text-center">הזוכים היומיים</h1>
-    <div class="text-center">
+    <div class="container text-center">
+    <h1 class="display-3">הזוכים היומיים</h1>
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2"></div>
+        <div class="col-md-auto">
     <?php if(isset($_SESSION['user'])): ?>
         <table class="table table-hover table-sm">
             <thead>
@@ -14,35 +23,45 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-success">
-                    <th scope="row">1</td>
-                        <td>אמיר אייזן</td>
-                        <td>120</td>
+            <?php 
+            $i = 1;
+            $played = false;    
+            ?>
+            <?php foreach($users as $user): ?>
+                <?php if($user['date_played'] == $today) {$played = true;} ?>
+                <?php if($played == true): ?>
+                <tr class= <?php
+                    
+                    if($i == 1){
+                        echo "table-success";
+                    }
+                    elseif($i == 2){
+                        echo "table-warning";
+                    }
+                    elseif($i == 3){
+                        echo "table-danger";
+                    }
+                     ?>>
+                     <?php ?>
+                    <th scope="row"><?php echo $i; ?></td>
+                        <td><?php if($played == true) {echo $user['full_name'];} ?></td>
+                        <td><?php if($played == true) {echo $user['score'];} ?></td>
                 </tr>
-                <tr class="table-warning">
-                    <td scope="row">2</td>
-                    <td>עידן אהרון</td>
-                    <td>119</td>
-                </tr>
-                <tr class="table-danger">
-                    <td scope="row">3</td>
-                    <td>סאלי דלאל</td>
-                    <td>118</td>
-                </tr>
-                <tr>
-                    <td scope="row">4</td>
-                    <td>איתי פרידמן</td>
-                    <td>117</td>
-                </tr>
-                <tr>
-                    <td scope="row">5</td>
-                    <td>פלוני אלמוני</td>
-                    <td>116</td>
-                </tr>
+                <?php endif; ?>
+                <?php
+                if($played == true) {
+                    $i++;
+                }
+                $played = false;
+                ?>
+            <?php endforeach;?>
             </tbody>
         </table>
 <?php else: ?>
 <h4 class="text-danger">לצפייה בזוכים היומיים עליך להתחבר</h3>
 <?php endif; ?>
-    </div>
+</div>
+            <div class="col col-lg-2"></div>
+        </div>
+        </div>
 <?php include('includes/footer.php');?>

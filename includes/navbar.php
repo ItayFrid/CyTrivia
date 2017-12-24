@@ -31,7 +31,7 @@
                 </li>
                 <?php if(isset($_SESSION['user']) && !isset($adminRow['admin_or_editor'])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">התחל לשחק!</a>
+                    <a class="nav-link" href="trivia.php">התחל לשחק!</a>
                 </li>
                 <?php endif;?>
             </ul>
