@@ -1,14 +1,5 @@
 <?php
-//require('qdb.php');
-define('ROOT_URL', 'http://localhost:8080');
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', 'ioigives2409');
-define('DB_NAME', 'questionsdb');
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if(mysqli_connect_errno()){
-	echo 'Failed to connect to data base';
-}	
+include('includes/header.php');
 if(isset($_POST['delete'])){
     $delete_id = mysqli_real_escape_string($conn, $_POST['delete_id']);
 
@@ -21,24 +12,12 @@ if(isset($_POST['delete'])){
         echo 'ERROR: '. mysqli_error($conn);
     }
 }
-    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    $id = mysqli_real_escape_string($con, $_GET['id']);
 	$query = 'SELECT * FROM questions WHERE id = '.$id;
-	$result = mysqli_query($conn, $query);
+	$result = mysqli_query($con, $query);
 	$question = mysqli_fetch_assoc($result);
-
-
 	mysqli_free_result($result);
-
-	mysqli_close($conn);
 ?>
-
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Questions data base</title>
-			<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/cerulean/bootstrap.min.css">
-		</head>
-	<body>
 		<h1>Questions</h1>
 			<div class="well">
 				<h3><?php echo $question['id']; ?></h3>
@@ -62,3 +41,4 @@ if(isset($_POST['delete'])){
 			</div>
 	</body>
 </html>
+include('includes/footer.php');

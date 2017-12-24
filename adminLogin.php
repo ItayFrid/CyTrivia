@@ -16,7 +16,6 @@ if(isset($_POST['adminLogin']))
 	{
         $err = "שם משתמש או סיסמא שגויים";
 	}
-	
 }
 ?>
 <div class="container text-center">
@@ -31,7 +30,7 @@ if(isset($_POST['adminLogin']))
                             <span class="input-group-addon" id="username-addon">
                                 <i class="fa fa-user-o" aria-hidden="true"></i>
                             </span>
-                            <input type="text" name="username" class="form-control" placeholder="שם משתמש" aria-describedby="username-addon">
+                            <input type="text" name="username" class="form-control" placeholder="שם משתמש" aria-describedby="username-addon" autocomplete="off">
                         </div>
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon" id="password-addon">

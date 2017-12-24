@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CyTrivia</title>
     <!-- Bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo ROOT_URL;?>css/bootstrap.min.css">
     <!-- Font Awsome CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Costum CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo ROOT_URL;?>css/style.css">
 
 </head>
 
 <body>
-<?php include('navbar.php');?>
+<?php include('includes/navbar.php');?>
