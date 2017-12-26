@@ -38,8 +38,11 @@ if(isset($_SESSION['user']))
                       <td>תוצאה</td>
                     </tr>
                   </thead>
-                  <?php $i=1;foreach($users as $user):?>
-                  <?php if($i<=10):?>
+                  <?php $i = 1;?>
+                  <?php foreach($users as $user):?>
+                  <?php $played = false;?>
+                  <?php if($i<=10 && $user['score']!=-1) {$played = true;} ?>
+                  <?php if($played == true):?>
                   <tr class="<?php if($i==1){echo 'table-success';}
                   elseif($i==2){echo 'table-warning';}
                   elseif($i==3){echo 'table-danger';}?>">
@@ -49,7 +52,6 @@ if(isset($_SESSION['user']))
                         echo $d; ?></td>
                         <td><?php echo $user['score'];?></td>
                   </tr>
-                  
                   <?php endif;?>
                   <?php $i++;endforeach;?>
                 </table>

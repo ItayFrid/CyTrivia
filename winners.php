@@ -29,7 +29,7 @@ $today = date('Y-m-d');
                 <tbody>
                     <?php $i = 1; $played = false; ?>
                     <?php foreach($users as $user): ?>
-                    <?php if($user['date_played'] == $today) {$played = true;} ?>
+                    <?php if($user['date_played'] == $today && $user['score']!=-1) {$played = true;} ?>
                     <?php if($played == true): ?>
                     <tr class= <?php
 

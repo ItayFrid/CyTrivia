@@ -44,20 +44,32 @@ include('includes/header.php');
 					<td><?php if($question['edit']==null){echo '-';} else{echo $question['edit'];} ?></th>
 					<td>
 					<div clas="inline">
-						<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-							<a href="editq.php?id=<?php echo $question['id']; ?>" class="btn btn-outline-warning btn-sm" role="button">ערוך</a>
-							<input type="hidden" name="delete_id" value="<?php echo $question['id']; ?>">
-							<input type="submit" name="delete" value="מחק" class="btn btn-outline-danger btn-sm">
-						</form>
+						<a href="editq.php?id=<?php echo $question['id']; ?>" class="btn btn-outline-warning btn-sm" role="button">ערוך</a>
+						<input type="submit" value="מחק" class="btn btn-outline-danger btn-sm" data-target="#confirmDelete<?php echo $question['id']; ?>" data-toggle="modal">
 					</div>
 					</td>
 				</tr>
+
+				<div class="modal fade" id="confirmDelete<?php echo $question['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    			<div class="modal-dialog">
+        		<div class="modal-content">
+            	<div class="modal-header">
+								אשר מחיקת שאלה
+            	</div>
+            	<div class="modal-footer">
+                <button type="button" class="btn btn-outline-default" data-dismiss="modal">ביטול</button>
+								<form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+									<input type="hidden" name="delete_id" value="<?php echo $question['id']; ?>">
+									<input type="submit" name="delete" value="מחק" class="btn btn-danger bt-ok">
+								</form>
+            	</div>
+        		</div>
+    			</div>
+				</div>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-			
 	</div>
 	<a href="addq.php" class="btn btn-primary" rol="button">הוסף שאלה</a>
 </div>
-
 <?php include('includes/footer.php');?>
