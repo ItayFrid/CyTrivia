@@ -11,6 +11,7 @@ $today = date('Y-m-d');
 
 <div class="container text-center">
     <h1 class="display-3">הזוכים היומיים</h1>
+    <hr>
     <div class="row">
     <!-- Right Column -->
         <div class="col-sm"></div>
@@ -18,7 +19,7 @@ $today = date('Y-m-d');
         <div class="col-sm">
             <?php if(isset($_SESSION['user'])): ?>
             <table class="table table-hover table-sm">
-                <thead>
+                <thead class="thead-light">
                     <tr>
                         <th scope="row">#</th>
                         <th>שם</th>

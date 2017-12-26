@@ -5,11 +5,11 @@ if(isset($_POST['delete'])){
 
     $query = "DELETE FROM questions WHERE id = {$delete_id}";
 
-    if(mysqli_query($conn, $query)){
+    if(mysqli_query($con, $query)){
         header('Location: qinterface.php');
     }
     else{
-        echo 'ERROR: '. mysqli_error($conn);
+        echo 'ERROR: '. mysqli_error($con);
     }
 }
     $id = mysqli_real_escape_string($con, $_GET['id']);
