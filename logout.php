@@ -1,5 +1,6 @@
 <?php 
-session_start();
+
+include('includes/header.php');
 if(!isset($_SESSION['user']))
 {
 	header("Location: index.php");
@@ -10,8 +11,7 @@ if(isset($_GET['logout']))
 	session_destroy();
   unset($_SESSION['user']);
 }
-
-include('includes/header.php'); ?>
+ ?>
     <div class="container text-center">
         <br><br>
         <div class="row justify-content-md-center">

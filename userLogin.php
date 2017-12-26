@@ -18,27 +18,28 @@ if(isset($_POST['userLogin'])){
 }
 ?>
 <div class="container text-center">
-        <h1 class="display-3">התחברות לאתר</h1>
+    <h1 class="display-3">התחברות לאתר</h1>
+    <br><br>
+    <div class="row">
         <br><br>
-        <div class="row justify-content-md-center">
-            <div class="col col-lg-2"></div>
-            <div class="col-md-auto">
-                <form method="post">
-                    <div class="form-group text-center">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon">
-                                <i class="fa fa-user-o" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" name="username" class="form-control" placeholder="שם משתמש" autocomplete="off">
-                        </div>
+        <div class="col-sm"></div>
+        <div class="col-sm">
+            <form method="post">
+                <div class="form-group text-center">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" name="username" class="form-control" placeholder="שם משתמש" autocomplete="off">
                     </div>
-                    <button type="submit" class="btn btn-outline-primary" name="userLogin">התחבר</button><br>
-                    <small>אם אינך רשום לחץ <a href="register.php">כאן</a> כדי להירשם</small>
-                    <br>
-                    <small class="text-danger"><?php echo $err;?></small>
-                </form>
-            </div>
-            <div class="col col-lg-2"></div>
+                </div>
+                <button type="submit" class="btn btn-outline-primary" name="userLogin">התחבר</button><br>
+                <small>אם אינך רשום לחץ <a href="register.php">כאן</a> כדי להירשם</small>
+                <br>
+                <small class="text-danger"><?php echo $err;?></small>
+            </form>
         </div>
+        <div class="col-sm"></div>
     </div>
+</div>
 <?php include('includes/footer.php');?>

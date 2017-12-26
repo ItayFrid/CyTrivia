@@ -7,31 +7,31 @@ mysqli_free_result($result);
 $today = date('Y-m-d');
 ?>
 
-    <!-- Body -->
-    <div class="container text-center">
+<!-- Body -->
+
+<div class="container text-center">
     <h1 class="display-3">הזוכים היומיים</h1>
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-2"></div>
-        <div class="col-md-auto">
-    <?php if(isset($_SESSION['user'])): ?>
-        <table class="table table-hover table-sm">
-            <thead>
-                <tr>
-                    <th scope="row">#</th>
-                    <th>שם</th>
-                    <th>תוצאה</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php 
-            $i = 1;
-            $played = false;    
-            ?>
-            <?php foreach($users as $user): ?>
-                <?php if($user['date_played'] == $today) {$played = true;} ?>
-                <?php if($played == true): ?>
-                <tr class= <?php
-                    
+    <div class="row">
+    <!-- Right Column -->
+        <div class="col-sm"></div>
+        <!-- Center Column -->
+        <div class="col-sm">
+            <?php if(isset($_SESSION['user'])): ?>
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="row">#</th>
+                        <th>שם</th>
+                        <th>תוצאה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 1; $played = false; ?>
+                    <?php foreach($users as $user): ?>
+                    <?php if($user['date_played'] == $today) {$played = true;} ?>
+                    <?php if($played == true): ?>
+                    <tr class= <?php
+
                     if($i == 1){
                         echo "table-success";
                     }
@@ -41,27 +41,28 @@ $today = date('Y-m-d');
                     elseif($i == 3){
                         echo "table-danger";
                     }
-                     ?>>
-                     <?php ?>
+                        ?>>
+                        <?php ?>
                     <th scope="row"><?php echo $i; ?></td>
                         <td><?php if($played == true) {echo $user['full_name'];} ?></td>
                         <td><?php if($played == true) {echo $user['score'];} ?></td>
-                </tr>
-                <?php endif; ?>
-                <?php
-                if($played == true) {
+                    </tr>
+                    <?php endif; ?>
+                    <?php
+                    if($played == true) {
                     $i++;
-                }
-                $played = false;
-                ?>
-            <?php endforeach;?>
-            </tbody>
-        </table>
-<?php else: ?>
-<h4 class="text-danger">לצפייה בזוכים היומיים עליך להתחבר</h3>
-<?php endif; ?>
+                    }
+                    $played = false;
+                    ?>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
+            <?php else: ?>
+            <h4 class="text-danger">לצפייה בזוכים היומיים עליך להתחבר</h3>
+            <?php endif; ?>
+        </div>
+        <!-- Left Column -->
+        <div class="col-sm"></div>
+    </div>
 </div>
-            <div class="col col-lg-2"></div>
-        </div>
-        </div>
 <?php include('includes/footer.php');?>
