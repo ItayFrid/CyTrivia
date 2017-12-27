@@ -6,9 +6,17 @@ if(isset($_POST['submit'])){
   $_SESSION['userAnswers'.$_SESSION['user']][]=$_POST['Answer'];
   // User Answered Correct
   $tempGrade=0;
+  $start_time=$_SESSION['time'.$_SESSION['user']];
+  $current_time=mktime();
+  $end_time=$current_time - $start_time;
+  if($end_time==0){
+    $end_time=1;
+  }
+  $_SESSION['TimePerAnswer'.$_SESSION['user']][]=$end_time;
+  unset($_SESSION['time'.$_SESSION['user']]);
   if($_POST['Answer']==end($_SESSION['correctAnswers'.$_SESSION['user']])){
     // Update Grade
-    $tempGrade = $_SESSION['level'.$_SESSION['user']]*10;
+    $tempGrade = (int)($_SESSION['level'.$_SESSION['user']]*100/$end_time);
     $_SESSION['grade'.$_SESSION['user']]+=$tempGrade;
     
     // Increment Level

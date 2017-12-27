@@ -7,7 +7,7 @@ include('functions/triviaFunctions.php');
 // $_SESSION['userAnswers'.$_SESSION['user']]
 // $_SESSION['correctAnswers'.$_SESSION['user']]
 // $_SESSION['used'.$_SESSION['user']]
-
+$_SESSION['time'.$_SESSION['user']]=mktime();
 // user Is Not Logged In
 if(!isset($_SESSION['user'])){
   header('Location: index.php');
@@ -36,12 +36,40 @@ $_SESSION['correctAnswers'.$_SESSION['user']][]=$question['correct'];
 // Randomize Answers Order
 $answerArray=randomizeAnswers($question);
 ?>
+<br><br>
 <div class="container text-center">
   <div class="row">
     <!-- Right Column -->
     <div class="col-sm">
     <!-- For Testing Only, Delete Later -->
-      <?php  // PrintQuestionsID();?>
+    <h4>זמן שעבר:</h4>
+    <h4><label class="text-danger" id="seconds">00</label></h4>
+                <script type="text/javascript">
+                    var minutesLabel = document.getElementById("minutes");
+                    var secondsLabel = document.getElementById("seconds");
+                    var totalSeconds = 0;
+                    setInterval(setTime, 1000);
+            
+                    function setTime()
+                    {
+                        ++totalSeconds;
+                        secondsLabel.innerHTML = pad(totalSeconds);
+                        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+                    }
+            
+                    function pad(val)
+                    {
+                        var valString = val + "";
+                        if(valString.length < 2)
+                        {
+                            return "0" + valString;
+                        }
+                        else
+                        {
+                            return valString;
+                        }
+                    }
+                </script>
       
     </div>
     <!-- Center Column -->

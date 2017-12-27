@@ -8,6 +8,7 @@ include('functions/triviaFunctions.php');
   $_SESSION['userAnswers'.$_SESSION['user']]=array();   //Array Of User's Answers
   $_SESSION['correctAnswers'.$_SESSION['user']]=array();//Array Of correct Answers
   $_SESSION['ScorePerAnswer'.$_SESSION['user']]=array();//Array Of Score Per Answer
+  $_SESSION['TimePerAnswer'.$_SESSION['user']]=array();
   //Get Question From DB By ID
 $query = 'SELECT * FROM users WHERE id = '.$_SESSION['user'];
 $result = mysqli_query($con, $query);

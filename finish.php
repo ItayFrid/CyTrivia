@@ -6,7 +6,7 @@ $numQues=$_SESSION['question'.$_SESSION['user']];
 $answerArrays=$_SESSION['userAnswers'.$_SESSION['user']];
 $correctAnswers = $_SESSION['correctAnswers'.$_SESSION['user']];
 $scoreArray=$_SESSION['ScorePerAnswer'.$_SESSION['user']];
-
+$timePerAnswer=$_SESSION['TimePerAnswer'.$_SESSION['user']];
 $date=date('Y-m-d');
 $query="UPDATE users SET score='$grade', date_played='$date' WHERE id={$_SESSION['user']}";
 $result = mysqli_query($con, $query);
@@ -17,6 +17,7 @@ unset($_SESSION['questions'.$_SESSION['user']]);
 unset($_SESSION['userAnswers'.$_SESSION['user']]);
 unset($_SESSION['correctAnswers'.$_SESSION['user']]);
 unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
+unset($_SESSION['TimePerAnswer'.$_SESSION['user']]);
 ?>
 <br>
   <h1 class="text-success text-center">סיימת את הטריוויה!</h1>
@@ -34,6 +35,7 @@ unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
           <thead class="thead-light">
             <tr>
               <th>מספר שאלה</th>
+              <th>זמן לשאלה</th>
               <th>ניקוד</th>
             </tr>
           </thead>
@@ -41,6 +43,7 @@ unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
           <?php $i=1;foreach($scoreArray as $score):?>
           <tr class="table-<?php if($score){echo 'success';}else{echo 'danger';} ?>">
               <th><?php echo $i;?></th>
+              <th><?php echo $timePerAnswer[$i-1];?></th>
               <th><?php echo $score;?></th>
             </tr>
           <?php $i++;endforeach;?>
@@ -48,6 +51,7 @@ unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
           <thead class="thead-light">
             <tr>
               <th>סה"כ</th>
+              <th></th>
               <th><?php echo $grade;?></th>
             </tr>
           </thead>
