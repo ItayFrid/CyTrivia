@@ -24,7 +24,7 @@ if(isset($_SESSION['admin']))
 <!-- User Is Admin -->
 <div class="container text-center">
         <h1 class="display-3">ממשק מנהל</h1>
-        <br><br>
+        <hr>
         <div class="row justify-content-md-center">
             <div class="col-sm-3"></div>
             <div class="col-lg">
@@ -34,6 +34,7 @@ if(isset($_SESSION['admin']))
                     <tr>
                       <td scope="row">#</td>
                       <td>שם</td>
+                      <td>שם משתמש</td>
                       <td>תאריך</td>
                       <td>תוצאה</td>
                     </tr>
@@ -48,6 +49,7 @@ if(isset($_SESSION['admin']))
                   elseif($i==3){echo 'table-danger';}?>">
                     <th scope="row"><?php echo $i;?></td>
                         <td><?php echo $user['full_name']; ?></td>
+                        <td><?php echo $user['username']; ?></td>
                         <td><?php $d=date("d/m/Y", strtotime($user['date_played']));
                         echo $d; ?></td>
                         <td><?php echo $user['score'];?></td>

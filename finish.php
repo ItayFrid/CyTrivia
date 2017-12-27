@@ -1,5 +1,14 @@
 <?php include('includes/header.php');?>
 <?php
+if(!isset($_SESSION['user'])){
+  header('Location: index.php');
+}
+if(isset($_SESSION['admin'])){
+  header('Location: index.php');
+}
+if(isset($_SESSION['user']) && !isset($_SESSION['grade'.$_SESSION['user']])){
+  header('Location: trivia.php');
+}
 $grade=$_SESSION['grade'.$_SESSION['user']];
 $level=$_SESSION['level'.$_SESSION['user']];
 $numQues=$_SESSION['question'.$_SESSION['user']];
@@ -35,7 +44,7 @@ unset($_SESSION['TimePerAnswer'.$_SESSION['user']]);
           <thead class="thead-light">
             <tr>
               <th>מספר שאלה</th>
-              <th>זמן לשאלה</th>
+              <th>זמן לשאלה בשניות</th>
               <th>ניקוד</th>
             </tr>
           </thead>

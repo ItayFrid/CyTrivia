@@ -20,13 +20,4 @@
 <h1 style="text-align: center;" dir="RTL"><span style="font-family: Segoe UI; font-size: x-large;">בהצלחה!</span></h1>
 
 
-<?php
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-		aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-<a href="<?php echo ROOT_URL;?>play.php">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">התחל!</button>
-            </a>
-
  include('includes/footer.php');?>

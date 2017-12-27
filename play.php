@@ -12,6 +12,9 @@ $_SESSION['time'.$_SESSION['user']]=mktime();
 if(!isset($_SESSION['user'])){
   header('Location: index.php');
 }
+if(isset($_SESSION['admin'])){
+  header('Location: index.php');
+}
 
 // User Answered 10 question, trivia finished
 if($_SESSION['question'.$_SESSION['user']]==11){
