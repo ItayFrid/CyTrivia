@@ -42,9 +42,11 @@ $answerArray=randomizeAnswers($question);
     <div class="col-sm">
     <!-- For Testing Only, Delete Later -->
       <?php  // PrintQuestionsID();?>
+      
     </div>
     <!-- Center Column -->
     <div class="col-sm">
+      
       <h3><?php echo $question['body'];?></h3>
       <form action="<?php echo 'proccess.php'; ?>" method="post" id="needs-validation" novalidate>
       <div class="custom-controls-stacked d-block">
@@ -58,6 +60,12 @@ $answerArray=randomizeAnswers($question);
         </div>
         <button type="submit" class="btn btn-outline-primary" value="submit" name="submit">הזן תשובה</button>
       </form>
+<br><br>
+      <h4>התקדמות</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="<?php echo ($_SESSION['question'.$_SESSION['user']]-1)*10;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo ($_SESSION['question'.$_SESSION['user']]-1)*10;?>%"><?php echo ($_SESSION['question'.$_SESSION['user']]-1)*10;?>%</div>
+      </div>
+
     </div>
     <!-- Right Column -->
     <div class="col-sm">

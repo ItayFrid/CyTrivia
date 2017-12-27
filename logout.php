@@ -1,7 +1,7 @@
 <?php 
 
 include('includes/header.php');
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['user']) && !isset($_SESSION['admin']))
 {
 	header("Location: index.php");
 }
@@ -10,6 +10,7 @@ if(isset($_GET['logout']))
 {
 	session_destroy();
   unset($_SESSION['user']);
+  unset($_SESSION['admin']);
 }
  ?>
     <div class="container text-center">

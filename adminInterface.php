@@ -1,6 +1,6 @@
 <?php
 include('includes/header.php');
-if(isset($_SESSION['user']))
+if(isset($_SESSION['admin']))
 {
   // Getting All Users
   $query = 'SELECT * FROM users ORDER BY score DESC';
@@ -8,12 +8,12 @@ if(isset($_SESSION['user']))
 	$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	mysqli_free_result($result);
 
-  $resAdmin=mysqli_query($con, "SELECT * FROM admins_editors WHERE id=".$_SESSION['user']);
+  $resAdmin=mysqli_query($con, "SELECT * FROM admins_editors WHERE id=".$_SESSION['admin']);
    $adminRow=mysqli_fetch_assoc($resAdmin);
    mysqli_free_result($resAdmin);
 }
   ?>
-<?php if(!(isset($_SESSION['user']) &&
+<?php if(!(isset($_SESSION['admin']) &&
  isset($adminRow['admin_or_editor']) &&
   $adminRow['admin_or_editor']==1)):?>
   <!-- User is not Admin Or Not Logged In -->
@@ -26,8 +26,8 @@ if(isset($_SESSION['user']))
         <h1 class="display-3">ממשק מנהל</h1>
         <br><br>
         <div class="row justify-content-md-center">
-            <div class="col col-lg-2"></div>
-            <div class="col-md-auto">
+            <div class="col-sm-3"></div>
+            <div class="col-lg">
                 <h3 class="text-success">10 המשתתפים הטובים ביותר</h3>
                 <table class="table table-hover table-sm">
                   <thead>
@@ -56,7 +56,7 @@ if(isset($_SESSION['user']))
                   <?php $i++;endforeach;?>
                 </table>
             </div>
-            <div class="col col-lg-2"></div>
+            <div class="col-sm-3"></div>
         </div>
     </div>
 <?php endif;?>

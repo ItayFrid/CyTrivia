@@ -9,7 +9,7 @@ if(isset($_POST['adminLogin']))
 	$row=mysqli_fetch_array($res);
 	if($row['password']== $password)
 	{
-		$_SESSION['user'] = $row['id'];
+		$_SESSION['admin'] = $row['id'];
 		header("Location: index.php");
 	}
 	else

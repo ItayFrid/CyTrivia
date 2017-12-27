@@ -11,7 +11,7 @@ $today = date('d/m/y');
         <div class="container">
             <i class="fa fa-ravelry fa-5x" aria-hidden="true"></i>
             <h1 class="display-3">טריווית סייבר</h1>
-            <?php if(isset($_SESSION['user'])): ?>
+            <?php if(isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
             <p class="lead">הזוכה היומי לתאריך <?php echo $today;?>:</p>
             <h4 class="text-success"><?php echo $users[0]['full_name'];?></h4>
             <?php else: ?>
@@ -33,4 +33,5 @@ $today = date('d/m/y');
         <br>
         <b>ידע= כח</b>
     </p>
+
     <?php include('includes/footer.php');?>

@@ -17,7 +17,7 @@ $today = date('Y-m-d');
         <div class="col-sm"></div>
         <!-- Center Column -->
         <div class="col-sm">
-            <?php if(isset($_SESSION['user'])): ?>
+            <?php if(isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
             <table class="table table-hover table-sm">
                 <thead class="thead-light">
                     <tr>

@@ -81,7 +81,7 @@ mysqli_free_result($result);
                     <div class="invalid-feedback">שדה חובה</div>
                 </div>
                 <input type ="hidden" name = "update_id" value = "<?php echo $question['id']; ?>">
-                <input type ="hidden" name = "editor" value = "<?php echo $_SESSION['user']; ?>">
+                <input type ="hidden" name = "editor" value = "<?php echo $_SESSION['admin']; ?>">
                 <input type ="submit" name="submit" value="שנה שאלה" class="btn btn-success">
                 <a href="qinterface.php" class = "btn btn-danger">חזרה</a>
                 <br></br>

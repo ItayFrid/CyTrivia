@@ -4,13 +4,15 @@
     if(isset($_SESSION['user']))
     {
         $res=mysqli_query($con, "SELECT * FROM users WHERE id=".$_SESSION['user']);
-        $resAdmin=mysqli_query($con, "SELECT * FROM admins_editors WHERE id=".$_SESSION['user']);
         $userRow=mysqli_fetch_assoc($res);
-        $adminRow=mysqli_fetch_assoc($resAdmin);
         mysqli_free_result($res);
+        
+    }
+    if(isset($_SESSION['admin'])){
+        $resAdmin=mysqli_query($con, "SELECT * FROM admins_editors WHERE id=".$_SESSION['admin']);
+        $adminRow=mysqli_fetch_assoc($resAdmin);
         mysqli_free_result($resAdmin);
     }
-
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nivut">
         <a class="navbar-brand" href="<?php echo ROOT_URL;?>index.php"><i class="fa fa-ravelry" aria-hidden="true"></i> CyTrivia</a>
@@ -29,7 +31,7 @@
                 </li>
 
                 </li>
-                <?php if(isset($_SESSION['user']) && !isset($adminRow['admin_or_editor'])): ?>
+                <?php if(isset($_SESSION['user'])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="trivia.php">התחל לשחק!</a>
                 </li>
@@ -38,7 +40,7 @@
 
         </div>
         <div class="justify-content-left">
-            <?php if(!isset($_SESSION['user'])): ?>
+            <?php if(!isset($_SESSION['user']) && !isset($_SESSION['admin'])): ?>
             <a href="<?php echo ROOT_URL;?>login.php">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">התחברות</button>
             </a>
@@ -46,7 +48,7 @@
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">הרשמה</button>
             </a>
             <?php else:?>
-                <?php if(isset($adminRow['admin_or_editor'])):?> 
+                <?php if(isset($_SESSION['admin'])):?> 
                 <!-- User is Admin Or Editor -->
                     <?php if($adminRow['admin_or_editor']==1):?>
                     <!-- User Is Admin -->
