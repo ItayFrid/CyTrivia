@@ -15,7 +15,7 @@ $today = date('d/m/y');
             <p class="lead">הזוכה היומי לתאריך <?php echo $today;?>:</p>
             <h4 class="text-success"><?php echo $users[0]['full_name'];?></h4>
             <?php else: ?>
-                <p class="lead text-danger">כדי להשתתף בטריוויה עליך להתחבר</p>
+                <p class="lead text-danger">כדי להשתתף בטריוויה ולצפות בתכנים עליך להתחבר</p>
             <?php endif;?>
         </div>
     </div>
