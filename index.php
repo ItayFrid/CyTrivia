@@ -1,5 +1,10 @@
-<?php include('includes/header.php');?>
-
+<?php include('includes/header.php');
+$query = 'SELECT * FROM users ORDER BY score DESC';
+$result = mysqli_query($con, $query);
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+$today = date('d/m/y');
+?>
 
     <!-- Jumbotron -->
     <div class="jumbotron jumbotron-fluid text-center">
@@ -7,7 +12,8 @@
             <i class="fa fa-ravelry fa-5x" aria-hidden="true"></i>
             <h1 class="display-3">טריווית סייבר</h1>
             <?php if(isset($_SESSION['user'])): ?>
-            <p class="lead">הזוכה היומי הוא: ישראל ישראלי</p>
+            <p class="lead">הזוכה היומי לתאריך <?php echo $today;?>:</p>
+            <h4 class="text-success"><?php echo $users[0]['full_name'];?></h4>
             <?php else: ?>
                 <p class="lead text-danger">כדי להשתתף בטריוויה עליך להתחבר</p>
             <?php endif;?>
