@@ -1,5 +1,6 @@
 <?php 
 include('includes/header.php');
+include('quit.php');
 $query = 'SELECT * FROM users ORDER BY score DESC';
 $result = mysqli_query($con, $query);
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);

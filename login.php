@@ -1,4 +1,5 @@
 <?php include('includes/header.php');?>
+<?php include('quit.php');?>
     <!-- Body -->
     <div class="container text-center">
         <h1 class="display-3">התחברות לאתר</h1>

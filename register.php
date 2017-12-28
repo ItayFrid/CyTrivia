@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+include('quit.php');
 $msg='';
 if(isset($_POST['register'])){
     $username = mysqli_real_escape_string($con, $_POST['username']);

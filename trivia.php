@@ -1,4 +1,5 @@
 <?php include('includes/header.php');
+include('quit.php');
 include('functions/triviaFunctions.php');
 if(!isset($_SESSION['user'])){
         header('Location: index.php');
@@ -6,15 +7,7 @@ if(!isset($_SESSION['user'])){
 if(isset($_SESSION['admin'])){
         header('Location: index.php');
 }
-// Creating Session Variables
-  $_SESSION['grade'.$_SESSION['user']]=0;               //The user's grade
-  $_SESSION['level'.$_SESSION['user']]=1;               //current question level
-  $_SESSION['question'.$_SESSION['user']]=1;            //Number Of Question player answered
-  $_SESSION['questions'.$_SESSION['user']]=generateQuestions(); // Random Question Array By lvl
-  $_SESSION['userAnswers'.$_SESSION['user']]=array();   //Array Of User's Answers
-  $_SESSION['correctAnswers'.$_SESSION['user']]=array();//Array Of correct Answers
-  $_SESSION['ScorePerAnswer'.$_SESSION['user']]=array();//Array Of Score Per Answer
-  $_SESSION['TimePerAnswer'.$_SESSION['user']]=array();
+
   //Get Question From DB By ID
 $query = 'SELECT * FROM users WHERE id = '.$_SESSION['user'];
 $result = mysqli_query($con, $query);
@@ -44,7 +37,7 @@ mysqli_free_result($result);
 כל חבר יכול להשתתף בתחרות פעם אחת בלבד ! <br>
 <b> בהצלחה!</b>
                 </h7><br><br>
-                <a href="play.php" class="btn btn-primary">התחל בטריוויה</a>
+                <a href="beforeTrivia.php" class="btn btn-primary">התחל בטריוויה</a>
 
                 <?php else:?>
                 <h3 class="text-danger">כבר השתתפת בטריוויה</h3>

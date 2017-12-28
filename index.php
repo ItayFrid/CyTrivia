@@ -1,4 +1,5 @@
 <?php include('includes/header.php');
+include('quit.php');
 $query = 'SELECT * FROM users ORDER BY score DESC';
 $result = mysqli_query($con, $query);
 $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -15,10 +16,9 @@ foreach($users as $user){
 }
 $day = date('d/m/Y',$yesterday);
 ?>
-
     <!-- Jumbotron -->
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
+    <div class="jumbotron">
+        <div class="container text-center">
             <i class="fa fa-ravelry fa-5x" aria-hidden="true"></i>
             <h1 class="display-3">טריווית סייבר</h1>
             <?php if(isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>

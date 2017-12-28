@@ -1,6 +1,6 @@
 <?php 
-
 include('includes/header.php');
+include('quit.php');
 if(!isset($_SESSION['user']) && !isset($_SESSION['admin']))
 {
 	header("Location: index.php");

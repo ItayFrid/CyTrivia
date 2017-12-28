@@ -1,5 +1,6 @@
 <?php
 include('includes/header.php');
+include('quit.php');
 $err='';
 
 if(isset($_POST['userLogin'])){

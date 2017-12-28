@@ -27,6 +27,7 @@ unset($_SESSION['userAnswers'.$_SESSION['user']]);
 unset($_SESSION['correctAnswers'.$_SESSION['user']]);
 unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
 unset($_SESSION['TimePerAnswer'.$_SESSION['user']]);
+unset($_SESSION['startPlay'.$_SESSION['user']]);
 ?>
 <br>
   <h1 class="text-success text-center">סיימת את הטריוויה!</h1>
