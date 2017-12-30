@@ -10,7 +10,8 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="<?php echo ROOT_URL;?>css/bootstrap.min.css">
     <!-- Font Awsome CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
     <!-- Costum CSS -->
     <link rel="stylesheet" href="<?php echo ROOT_URL;?>css/style.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

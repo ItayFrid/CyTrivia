@@ -15,7 +15,7 @@
     }
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nivut">
-        <a class="navbar-brand" href="<?php echo ROOT_URL;?>index.php"><i class="fa fa-ravelry" aria-hidden="true"></i> CyTrivia</a>
+        <a class="navbar-brand" href="<?php echo ROOT_URL;?>index.php"><i class="fab fa-ravelry" aria-hidden="true"></i> CyTrivia</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,6 +61,11 @@
                 <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">עריכת שאלות</button>
             </a>
                     <?php endif;?>
+                <?php endif;?>
+                <?php if(isset($_SESSION['user'])):?> 
+                <a href="<?php echo ROOT_URL;?>profile.php">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">פרופיל</button>
+                </a>
                 <?php endif;?>
             <a href="<?php echo ROOT_URL;?>logout.php?logout">
                 <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">התנתקות</button>

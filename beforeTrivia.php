@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['user'])){
+        header("Location: index.php");
+}
 include('includes/header.php');
 include('functions/triviaFunctions.php');
 if(!isset($_SESSION['user'])){

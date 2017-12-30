@@ -1,5 +1,8 @@
 <?php
 include('includes/header.php');
+if(!isset($_SESSION['admin'])){
+    header("Location: index.php");
+}
 if(isset($_POST['submit'])){
     $update_id = mysqli_real_escape_string($con, $_POST['update_id']);
     $level = mysqli_real_escape_string($con, $_POST['level']);

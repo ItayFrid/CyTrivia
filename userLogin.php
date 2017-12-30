@@ -29,7 +29,7 @@ if(isset($_POST['userLogin'])){
                 <div class="form-group text-center">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i class="far fa-user" aria-hidden="true"></i>
                         </span>
                         <input type="text" name="username" class="form-control" placeholder="שם משתמש" autocomplete="off">
                     </div>

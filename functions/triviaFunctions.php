@@ -8,24 +8,6 @@ function randomizeAnswers($question){
   shuffle($rand_arr);
   return $rand_arr;
 }
-function getQuestion(&$level,$questions,&$used){
-  $qlevel = [];
-  $count = 0;
-  while($count == 0){
-    foreach($questions as $question){
-        if($question['lev'] == $level && in_array($question['id'], $used) == false){    
-          //If question is with given level and not used 
-            array_push($qlevel, $question['id']);
-            $count++;
-        }
-    }
-    if($count == 0){
-      $level++;
-    }
-  }
-  $rand = rand(0, $count - 1);
-  return $qlevel[$rand];
-}
 function generateQuestions(){
   $con = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
   $query = 'SELECT * FROM questions ORDER BY lev ASC';

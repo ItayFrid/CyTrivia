@@ -28,13 +28,13 @@ if(isset($_POST['adminLogin']))
                 <div class="form-group text-center">
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="username-addon">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <i class="far fa-user" aria-hidden="true"></i>
                         </span>
                         <input type="text" name="username" class="form-control" placeholder="שם משתמש" aria-describedby="username-addon" autocomplete="off">
                     </div>
                     <div class="input-group input-group-lg">
                         <span class="input-group-addon" id="password-addon">
-                            <i class="fa fa-key" aria-hidden="true"></i>
+                            <i class="fas fa-key" aria-hidden="true"></i>
                         </span>
                         <input type="password" name="password" class="form-control" placeholder="סיסמא" aria-describedby="password-addon">
                     </div>

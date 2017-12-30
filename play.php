@@ -47,37 +47,35 @@ $answerArray=randomizeAnswers($question);
     <!-- For Testing Only, Delete Later -->
     <h4>זמן שעבר:</h4>
     <h4><label class="text-danger" id="seconds">00</label></h4>
-                <script type="text/javascript">
-                    var minutesLabel = document.getElementById("minutes");
-                    var secondsLabel = document.getElementById("seconds");
-                    var totalSeconds = 0;
-                    setInterval(setTime, 1000);
-            
-                    function setTime()
-                    {
-                        ++totalSeconds;
-                        secondsLabel.innerHTML = pad(totalSeconds);
-                        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-                    }
-            
-                    function pad(val)
-                    {
-                        var valString = val + "";
-                        if(valString.length < 2)
-                        {
-                            return "0" + valString;
-                        }
-                        else
-                        {
-                            return valString;
-                        }
-                    }
-                </script>
-      
+      <script type="text/javascript">
+          var minutesLabel = document.getElementById("minutes");
+          var secondsLabel = document.getElementById("seconds");
+          var totalSeconds = 0;
+          setInterval(setTime, 1000);
+  
+          function setTime()
+          {
+              ++totalSeconds;
+              secondsLabel.innerHTML = pad(totalSeconds);
+              minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+          }
+  
+          function pad(val)
+          {
+              var valString = val + "";
+              if(valString.length < 2)
+              {
+                  return "0" + valString;
+              }
+              else
+              {
+                  return valString;
+              }
+          }
+      </script>
     </div>
     <!-- Center Column -->
     <div class="col-sm">
-      
       <h3><?php echo $question['body'];?></h3>
       <form action="<?php echo 'proccess.php'; ?>" method="post" id="needs-validation" novalidate>
       <div class="custom-controls-stacked d-block">

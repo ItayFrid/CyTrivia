@@ -1,5 +1,8 @@
 <?php
 include('includes/header.php');
+if(!isset($_SESSION['admin'])){
+	header("Location: index.php");
+}
 	$query = 'SELECT * FROM questions ORDER BY lev ASC';
 	$result = mysqli_query($con, $query);
 	$questions = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -19,7 +22,8 @@ include('includes/header.php');
 	<h1 class="display-3">ממשק עורכי אתר</h1>
 		<hr>
 		<p class="text-center">
-			<a href="addq.php" class="btn btn-primary" rol="button">הוסף שאלה</a>
+			<a href="addq.php" class="btn btn-info" rol="button">הוסף שאלה</a>
+			<a href="profile.php" class="btn btn-info" rol="button">עדכון פרופיל אישי</a>
 		</p>
 	<div class="row">
 		
@@ -70,6 +74,6 @@ include('includes/header.php');
 			</tbody>
 		</table>
 	</div>
-	<a href="addq.php" class="btn btn-primary" rol="button">הוסף שאלה</a>
+	<a href="addq.php" class="btn btn-info" rol="button">הוסף שאלה</a>
 </div>
 <?php include('includes/footer.php');?>

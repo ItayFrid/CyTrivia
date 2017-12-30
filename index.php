@@ -19,7 +19,7 @@ $day = date('d/m/Y',$yesterday);
     <!-- Jumbotron -->
     <div class="jumbotron">
         <div class="container text-center">
-            <i class="fa fa-ravelry fa-5x" aria-hidden="true"></i>
+            <i class="fab fa-ravelry fa-5x" aria-hidden="true"></i>
             <h1 class="display-3">טריווית סייבר</h1>
             <?php if(isset($_SESSION['user']) || isset($_SESSION['admin'])): ?>
             <p class="lead">הזוכה היומי האחרון (<?php echo $day;?>):</p>

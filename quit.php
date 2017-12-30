@@ -1,6 +1,5 @@
 <?php if(isset($_SESSION['user'])):?>
 <?php if(isset($_SESSION['startPlay'.$_SESSION['user']])):?>
-
 <?php
 $grade=$_SESSION['grade'.$_SESSION['user']];
 $level=$_SESSION['level'.$_SESSION['user']];
@@ -22,28 +21,15 @@ unset($_SESSION['ScorePerAnswer'.$_SESSION['user']]);
 unset($_SESSION['TimePerAnswer'.$_SESSION['user']]);
 unset($_SESSION['startPlay'.$_SESSION['user']]);
 ?>
- <!-- aria-labelledby="myModalLabel" -->
-<!-- <div class="modal fade" tabindex="-1" role="dialog" data-toggle="modal" data-target="#error" aria-hidden="false">
-    			<div class="modal-dialog">
-        		<div class="modal-content">
-            	<div class="modal-header">
-                <div class="modal-title">
-                  שגיאה
-                </div>
-            	</div>
-              <div class="modal-body">
-                <p>יצאת באמצע החידון, ציונך יעודכן בהתאם לשאלות שענית עד כה</p>
-              </div>
-            	<div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">אישור</button>
-            	</div>
-        		</div>
-    			</div>
-					<script>
-						$('#error').modal('show')
-					</script> -->
-					<hr>
-					<h4 class="text-danger text-center">יצאת באמצע החידון, ציונך יעודכן בהתאם לשאלות שענית עד כה</h4>
-					<hr>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" id="scoreAlert">
+	<div class="row">
+		<div class="col text-right">
+			<strong>יצאת באמצע החידון</strong>, ציונך יעודכן בהתאם לשאלות שענית עד כה.
+		</div>
+		<div class="col text-left">
+		<a href="" class="alert-link" data-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></a>
+		</div>
+	</div>
+</div>
 <?php endif;?>
 <?php endif;?>

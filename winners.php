@@ -22,7 +22,7 @@ $today = date('Y-m-d');
             <table class="table table-hover table-sm">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="row">#</th>
+                        <th scope="row"><i class="fas fa-trophy"></i></th>
                         <th>שם</th>
                         <th>תוצאה</th>
                     </tr>

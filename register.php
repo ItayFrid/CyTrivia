@@ -37,7 +37,7 @@ if(isset($_POST['register'])){
 
                     <div class="input-group-md">
                     <label for="name">שם פרטי ושם משפחה</label>
-                        <input type="text" name="name" id="name" autocomplete="off" class="form-control" placeholder="שם מלא" area-discribedby="nameHelp" required="" data-parsley-type="alphanum">
+                        <input type="text" name="name" id="name" autocomplete="off" class="form-control" placeholder="שם מלא" area-discribedby="nameHelp" required>
                         <!-- <small id="nameHelp" class="form-text text-muted">נא להכניס בין 5 ל50 תווים</small> -->
                         <div class="invalid-feedback">
                            חובה להזין שם מלא.
