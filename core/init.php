@@ -1,5 +1,6 @@
 <?php
 // MySQL connection variables
+
 // define('ROOT_URL','http://localhost/cytrivia1/cytrivia/');
 // define('DB_HOST','localhost');
 // define('DB_USER','root');
