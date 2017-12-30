@@ -65,3 +65,4 @@ if(isset($_SESSION['admin']))
   </div>
 </div>
 <?php endif;?>
+<?php include('includes/footer.php');?>
