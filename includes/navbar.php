@@ -33,7 +33,7 @@
                 </li>
                 <?php if(isset($_SESSION['user'])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="trivia.php">התחל לשחק!</a>
+                    <a class="nav-link text-success" href="trivia.php"><h5>התחל לשחק!</h5></a>
                 </li>
                 <?php endif;?>
             </ul>
