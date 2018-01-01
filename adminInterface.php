@@ -23,23 +23,22 @@ if(isset($_SESSION['admin']))
 <?php else:?>
 <!-- User Is Admin -->
 <div class="container text-center">
-  <h1 class="display-3">ממשק מנהל</h1>
+  <h1 class="display-3 bg-light">ממשק מנהל</h1>
   <hr>
   <div class="row justify-content-md-center">
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3 text-center">
+      <a href="profile.php" class="btn btn-info" rol="button">עדכון פרופיל אישי</a>
+    </div>
     <div class="col-sm">
-    <p class="text-center">
-			<a href="profile.php" class="btn btn-info" rol="button">עדכון פרופיל אישי</a>
-		</p>
       <h3 class="text-success">10 המשתתפים הטובים ביותר</h3>
       <table class="table table-hover table-sm">
         <thead class="thead-light">
           <tr>
-            <td scope="row"><i class="fas fa-trophy"></i></td>
-            <td>שם</td>
-            <td>שם משתמש</td>
-            <td>תאריך</td>
-            <td>תוצאה</td>
+            <th scope="row"><i class="fas fa-trophy"></i></th>
+            <th>שם</th>
+            <th>שם משתמש</th>
+            <th>תאריך</th>
+            <th>תוצאה</th>
           </tr>
         </thead>
         <?php $i = 1;?>
@@ -50,7 +49,7 @@ if(isset($_SESSION['admin']))
         <tr class="<?php if($i==1){echo 'table-success';}
         elseif($i==2){echo 'table-warning';}
         elseif($i==3){echo 'table-danger';}?>">
-        <th scope="row"><?php echo $i;?></td>
+        <td scope="row"><?php echo $i;?></td>
             <td><?php echo $user['full_name']; ?></td>
             <td><?php echo $user['username']; ?></td>
             <td><?php $d=date("d/m/Y", strtotime($user['date_played']));
@@ -61,7 +60,10 @@ if(isset($_SESSION['admin']))
         <?php $i++;endforeach;?>
       </table>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3 text-center d-inline">
+      <a href="registerAdmin.php" class="btn btn-info" rol="button">הוספת מנהל</a>
+      <a href="showAdmin.php" class="btn btn-info" rol="button">תצוגת מנהלים</a>
+    </div>
   </div>
 </div>
 <?php endif;?>
