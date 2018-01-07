@@ -3,6 +3,15 @@ function randomizeAnswers($rand_arr){
   shuffle($rand_arr);
   return $rand_arr;
 }
+function randomizeAnswers1($question){
+  $rand_arr=[];
+  array_push($rand_arr, $question['correct']);
+  array_push($rand_arr, $question['wrong1']);
+  array_push($rand_arr, $question['wrong2']);
+  array_push($rand_arr, $question['wrong3']);
+  shuffle($rand_arr);
+  return $rand_arr;
+}
 function generateQuestions(){
   $con = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
   $query = 'SELECT * FROM questions ORDER BY lev ASC';

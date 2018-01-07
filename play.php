@@ -37,12 +37,7 @@ mysqli_free_result($result);
 $_SESSION['correctAnswers'.$_SESSION['user']][]=$question['correct'];
 
 // Randomize Answers Order
-$rand_arr=[];
-array_push($rand_arr, $question['correct']);
-array_push($rand_arr, $question['wrong1']);
-array_push($rand_arr, $question['wrong2']);
-array_push($rand_arr, $question['wrong3']);
-$answerArray=randomizeAnswers($rand_arr);
+$answerArray=randomizeAnswers1($question);
 ?>
 <br><br>
 <div class="container text-center">
