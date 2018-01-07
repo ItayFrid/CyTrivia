@@ -1,10 +1,5 @@
 <?php
-function randomizeAnswers($question){
-  $rand_arr = [];
-  array_push($rand_arr, $question['correct']);
-  array_push($rand_arr, $question['wrong1']);
-  array_push($rand_arr, $question['wrong2']);
-  array_push($rand_arr, $question['wrong3']);
+function randomizeAnswers($rand_arr){
   shuffle($rand_arr);
   return $rand_arr;
 }
