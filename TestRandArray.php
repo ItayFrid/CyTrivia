@@ -11,11 +11,15 @@ function Test_if_TestrandomizeAnswers_returns_4_ans( $arr= (array("test1", "test
 }
 
 function Test_if_TestrandomizeAnswers_contain_all_the_values_he_get($arr= (array("test1", "test2", "test3", "test4"))) {
-  $testarr = randomizeAnswers($arr);
-  echo "check if the function returns the same value its get   ";
+  $testarr = randomizeAnswers($arr); 
+  $bool = true;
+  echo "check if the function returns the same value its get <br>";
   foreach ($arr as $val) {
-    echo in_array($val, $testarr);
+    if(!in_array($val, $testarr)){
+      $bool=false;
+    }
   }
+  echo $bool;
   echo "<br><br>";
 }
 
