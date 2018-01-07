@@ -5,7 +5,7 @@ require_once 'functions/triviaFunctions.php';
 function Test_if_TestrandomizeAnswers_returnrs_4_ans( $arr= (array("test1", "test2", "test3", "test4"))) {
   $testarr = randomizeAnswers ($arr);
   echo "check if the function return the same nummber of the elment its get\n";
-  echo count(&testarr) == count($arr);
+  echo count($testarr) == count($arr);
   print"\n";
 
 }
@@ -13,7 +13,7 @@ function Test_if_TestrandomizeAnswers_returnrs_4_ans( $arr= (array("test1", "tes
 function Test_if_TestrandomizeAnswers_contain_all_the_values_he_get($arr= (array("test1", "test2", "test3", "test4"))) {
   $testarr = randomizeAnswers($arr);
   echo "check if the function returns the same value its get\n";
-  foreach (&arr as $val) {
+  foreach ($arr as $val) {
     echo in_array($val);
   }
 
