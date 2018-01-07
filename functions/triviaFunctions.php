@@ -26,13 +26,6 @@ function generateQuestions(){
   } 
   return $finalQuestions;
 }
-function PrintQuestionsID(){
-  $_SESSION['questions'.$_SESSION['user']];
-  for($i=0;$i<10;$i++){
-    foreach($_SESSION['questions'.$_SESSION['user']][$i] as $id){
-      echo "{$id} ";
-    }
-    echo '<br>';
-  }
-}
+
+
 ?>
