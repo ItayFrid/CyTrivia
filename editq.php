@@ -68,19 +68,19 @@ mysqli_free_result($result);
 
                 <div class="form-group">
                     <label class="text-danger">תשובה שגויה 1</label>
-                    <textarea name="wrong1" name="wrong1" class="form-control text-left" required><?php echo $question['wrong1'];?></textarea>
+                    <textarea name="wrong1" class="form-control text-left" required><?php echo $question['wrong1'];?></textarea>
                     <div class="invalid-feedback">שדה חובה</div>
                 </div>
 
                 <div class="form-group">
                     <label class="text-danger">תשובה שגויה 2</label>
-                    <textarea name="wrong2" name="wrong2" class="form-control text-left" required><?php echo $question['wrong2'];?></textarea>
+                    <textarea name="wrong2" class="form-control text-left" required><?php echo $question['wrong2'];?></textarea>
                     <div class="invalid-feedback">שדה חובה</div>
                 </div>
 
                 <div class="form-group">
                     <label class="text-danger">תשובה שגויה 3</label>
-                    <textarea name="wrong3" name="wrong3" class="form-control text-left" required><?php echo $question['wrong3'];?></textarea>
+                    <textarea name="wrong3" class="form-control text-left" required><?php echo $question['wrong3'];?></textarea>
                     <div class="invalid-feedback">שדה חובה</div>
                 </div>
                 <input type ="hidden" name = "update_id" value = "<?php echo $question['id']; ?>">
